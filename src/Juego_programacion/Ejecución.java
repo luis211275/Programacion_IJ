@@ -57,7 +57,7 @@ public class Ejecución {
                     Thread.sleep(1000);
                     int num_guerrero = 1;
                     int num_arquero = 2;
-                    eleccion_valida = true;System.out.println("Depues de haber elegido al guerrero, vamos a ver contra quien te vas a enfrentar");
+                    eleccion_valida = true;System.out.println("Depues de haber elegido al mago, vamos a ver contra quien te vas a enfrentar");
                     Thread.sleep(500);
                     System.out.println("Te enfrentaras contra...");
                     Thread.sleep(1000);
@@ -74,7 +74,7 @@ public class Ejecución {
                     int num_guerrero = 1;
                     int num_mago = 2;
                     eleccion_valida = true;
-                    System.out.println("Depues de haber elegido al guerrero, vamos a ver contra quien te vas a enfrentar");
+                    System.out.println("Depues de haber elegido al mago, vamos a ver contra quien te vas a enfrentar");
                     Thread.sleep(500);
                     System.out.println("Te enfrentaras contra...");
                     Thread.sleep(1000);

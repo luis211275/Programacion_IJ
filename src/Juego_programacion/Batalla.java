@@ -12,16 +12,18 @@ public class Batalla {
     int defensa_arquero;
 
     public Batalla(int vida_guerrero, int ataque_guerrero, int defensa_guerrero) {
-        this.vida_guerrero = 80;
-        this.ataque_guerrero = 35;
-        this.defensa_guerrero = 25;
-        this.vida_mago = 65;
-        this.ataque_mago = 55;
-        this.defensa_mago = 20;
-        this.vida_arquero = 70;
-        this.ataque_arquero = 45;
-        this.defensa_arquero = 25;
+        this.vida_guerrero = vida_guerrero;
+        this.ataque_guerrero = ataque_guerrero;
+        this.defensa_guerrero = defensa_guerrero;
+        this.vida_mago = vida_mago;
+        this.ataque_mago = ataque_mago;
+        this.defensa_mago = defensa_mago;
+        this.vida_arquero = vida_arquero;
+        this.ataque_arquero = ataque_arquero;
+        this.defensa_arquero = defensa_arquero;
+
     }
+
 
     public int getVida_guerrero() {
         return vida_guerrero;
@@ -93,5 +95,8 @@ public class Batalla {
 
     public void setDefensa_arquero(int defensa_arquero) {
         this.defensa_arquero = defensa_arquero;
+    }
+    public void ataque (int ataque){
+        this.ataque_guerrero += ataque;
     }
 }
