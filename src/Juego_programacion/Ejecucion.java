@@ -41,7 +41,7 @@ public class Ejecucion {
                     Thread.sleep(1000);
                     int num_mago = 1;
                     int num_arquero = 2;
-                    eleccion_valida = true;
+                    eleccion_valida = false;
                     Thread.sleep(500);
                     boolean j2_elecion = false;
                     do {
@@ -87,6 +87,7 @@ public class Ejecucion {
                                                 System.out.println("eleccion no valida");
                                             }
                                         }while (!accion_valida2);
+                                        eleccion_valida=true;
                                     }
                                     else if (accion == 2) {
                                         System.out.println("El " + nombres[0] + " ha elegido defender");
