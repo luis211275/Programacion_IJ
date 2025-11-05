@@ -41,13 +41,12 @@ public class Ejecucion {
                     Thread.sleep(1000);
                     int num_mago = 1;
                     int num_arquero = 2;
-                    eleccion_valida = false;
+                    eleccion_valida = true;
                     Thread.sleep(500);
                     boolean j2_elecion = false;
                     do {
                         System.out.println("Despues de que el jugador 1 seleccione al guerrero, veamos a quien selecciona el jugador 2: ");
                         int eleccion2 = sc.nextInt();
-
 
 
                         if (eleccion2 == 2) {
@@ -57,71 +56,58 @@ public class Ejecucion {
                             System.out.println("Despues de las elecciones, empecemos la pelea.");
                             Thread.sleep(1000);
                             System.out.println("Veamos quien empieza primero, si el jugador 1 o el jugador 2");
-                            int inicio = random.nextInt(2) +1;
+                            int inicio = random.nextInt(2) + 1;
                             if (inicio == 1) {
                                 System.out.println("empeiza el guerrero (jugador 1)");
                                 Thread.sleep(1000);
                                 String jugador1 = "guerrero";
                                 String jugador2 = "mago";
-                                System.out.println("Ahora el " + nombres[0] + " puede hacer 2 cosas, o atacar o defender, ¿que vas a hacer, atacar (1) o defender (2)");
+                                System.out.println("Ahora el " + jugador1 + " puede hacer 2 cosas, o atacar o defender, ¿que vas a hacer, atacar (1) o defender (2)");
                                 int accion = sc.nextInt();
                                 boolean accion_valida = false;
                                 do {
                                     if (accion == 1) {
-                                        System.out.println("El " + nombres[0] + " ha elegido atacar");
+                                        System.out.println("El " + jugador1 + " ha elegido atacar");
                                         accion_valida = true;
                                         Thread.sleep(1000);
-                                        System.out.println("Ahora elige el " + nombres[1] + " puede atacar (1) o defender (2)");
+                                        System.out.println("Ahora elige el " + jugador2 + " puede atacar (1) o defender (2)");
                                         int accion2 = sc.nextInt();
                                         boolean accion_valida2 = false;
                                         do {
                                             if (accion2 == 1) {
-                                                System.out.println("El " + nombres[1] + " ha elegido atacar");
+                                                System.out.println("El " + jugador2 + " ha elegido atacar");
                                                 accion_valida2 = true;
-                                            }
-                                            else if (accion2 == 2) {
-                                                System.out.println("El " + nombres[1] + " ha elegido defender");
+                                            } else if (accion2 == 2) {
+                                                System.out.println("El " + jugador2 + " ha elegido defender");
                                                 accion_valida2 = true;
-                                            }
-                                            else if (accion2 < 1 || accion2 > 2) {
+                                            } else if (accion2 < 1 || accion2 > 2) {
                                                 System.out.println("eleccion no valida");
                                             }
-                                        }while (!accion_valida2);
-                                        eleccion_valida=true;
-                                    }
-                                    else if (accion == 2) {
+                                        } while (!accion_valida2);
+                                    } else if (accion == 2) {
                                         System.out.println("El " + nombres[0] + " ha elegido defender");
                                         accion_valida = true;
-                                    }
-                                    else if (accion < 1 || accion > 2) {
+                                    } else {
                                         System.out.println("eleccion incorrecta");
                                     }
-                                }while (!accion_valida);
-                            }
 
-
-
-
-
-                            else if (inicio == 2) {
+                                } while (!accion_valida);
+                            } else if (inicio == 2) {
                                 System.out.println("empieza el mago (jugador 2)");
                                 Thread.sleep(1000);
                                 String inicio_pelea = "Mago";
                             }
 
-                        }
-                        else  if (eleccion2 == 3) {
+                        } else if (eleccion2 == 3) {
                             System.out.println("Bien, el jugador 2 ha elegido al arquero");
                             j2_elecion = true;
-                        }
-                        else if  (eleccion2 > 3 || eleccion2 < 1) {
+                        } else if (eleccion2 > 3 || eleccion2 < 1) {
                             System.out.println("no, el numero debe estar entre el 1 y el 3");
-                        }
-                        else if  (eleccion2 == 1) {
+                        } else if (eleccion2 == 1) {
                             System.out.println("no, el jugador2 no puede elegir el mismo campeon que el jugador1");
                         }
 
-                    }while (!j2_elecion);
+                    } while (!j2_elecion);
                 } else if (eleccion == 2) {
                     System.out.println("Bien, has elegido al mago, buena idea");
                     Thread.sleep(1000);
@@ -133,19 +119,16 @@ public class Ejecucion {
                         if (eleccion2 == 1) {
                             System.out.println("Bien, el jugador 2 ha seleccionado al guerrero");
                             j2_elecion = true;
-                        }
-                        else  if (eleccion2 == 3) {
+                        } else if (eleccion2 == 3) {
                             System.out.println("Bien, el jugador 2 ha elegido al arquero");
                             j2_elecion = true;
-                        }
-                        else if  (eleccion2 > 3 || eleccion2 < 1) {
+                        } else if (eleccion2 > 3 || eleccion2 < 1) {
                             System.out.println("no, el numero debe estar entre el 1 y el 3");
-                        }
-                        else if  (eleccion2 == 2) {
+                        } else if (eleccion2 == 2) {
                             System.out.println("no, el jugador2 no puede elegir el mismo campeon que el jugador1");
                         }
 
-                    }while (!j2_elecion);
+                    } while (!j2_elecion);
 
                 } else if (eleccion == 3) {
                     System.out.println("Bien, has elejido al arquero, buena idea");
@@ -158,19 +141,16 @@ public class Ejecucion {
                         if (eleccion2 == 2) {
                             System.out.println("Bien, el jugador 2 ha seleccionado el mago");
                             j2_elecion = true;
-                        }
-                        else  if (eleccion2 == 1) {
+                        } else if (eleccion2 == 1) {
                             System.out.println("Bien, el jugador 2 ha elegido al guerrero");
                             j2_elecion = true;
-                        }
-                        else if  (eleccion2 > 3 || eleccion2 < 1) {
+                        } else if (eleccion2 > 3 || eleccion2 < 1) {
                             System.out.println("no, el numero debe estar entre el 1 y el 3");
-                        }
-                        else if  (eleccion2 == 3) {
+                        } else if (eleccion2 == 3) {
                             System.out.println("no, el jugador2 no puede elegir el mismo campeon que el jugador1");
                         }
 
-                    }while (!j2_elecion);
+                    } while (!j2_elecion);
                 } else if (eleccion != 1 || eleccion != 2 || eleccion != 3) {
                     System.out.println("Empezamos mal soldado");
                     Thread.sleep(1000);
