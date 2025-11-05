@@ -64,11 +64,8 @@ public class Ejecucion {
                                 String jugador2 = "mago";
                                 System.out.println("Ahora el " + jugador1 + " puede hacer 2 cosas, o atacar o defender, ¿que vas a hacer, atacar (1) o defender (2)");
                                 int accion = sc.nextInt();
-                                boolean accion_valida = false;
-                                do {
                                     if (accion == 1) {
                                         System.out.println("El " + jugador1 + " ha elegido atacar");
-                                        accion_valida = true;
                                         Thread.sleep(1000);
                                         System.out.println("Ahora elige el " + jugador2 + " puede atacar (1) o defender (2)");
                                         int accion2 = sc.nextInt();
@@ -86,12 +83,10 @@ public class Ejecucion {
                                         } while (!accion_valida2);
                                     } else if (accion == 2) {
                                         System.out.println("El " + nombres[0] + " ha elegido defender");
-                                        accion_valida = true;
                                     } else {
                                         System.out.println("eleccion incorrecta");
+                                        break;
                                     }
-
-                                } while (!accion_valida);
                             } else if (inicio == 2) {
                                 System.out.println("empieza el mago (jugador 2)");
                                 Thread.sleep(1000);
