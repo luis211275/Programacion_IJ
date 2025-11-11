@@ -52,6 +52,14 @@ public class Personajes {
         this.defensa = defensa;
     }
 
+
+    public int ataque_especial() {
+        int especial = ataque;
+        return especial * 2;
+    }
+
+
+
     @Override
     public String toString() {
         return "Personajes{" +
@@ -59,6 +67,7 @@ public class Personajes {
                 ", vida=" + vida +
                 ", ataque=" + ataque +
                 ", defensa=" + defensa +
+                ", ataque especial=" +  ataque_especial() +
                 '}';
     }
 }

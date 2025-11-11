@@ -1,7 +1,4 @@
-package Juego_sencillo;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
+package Pagod;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -38,7 +35,7 @@ public class MyScanner {
                 num = sc.nextDouble();
                 sc.nextLine();
                 flag = false;
-            } catch (InputMismatchException e) {
+            }catch (InputMismatchException e) {
                 System.out.println("Eso no es número!");
                 sc.nextLine();
             }
@@ -56,7 +53,7 @@ public class MyScanner {
             if (!valido) {
                 System.out.println("ERROR: solo se permiten letras (sin números ni símbolos). Inténtalo de nuevo.");
             }
-        } while (!valido);
+        }  while (!valido);
         return input;
     }
 
@@ -70,7 +67,7 @@ public class MyScanner {
             if (!valido) {
                 System.out.println("ERROR: solo se permite introducir una letra. Inténtalo de nuevo.");
             }
-        } while (!valido);
+        }while (!valido);
 
         return input.charAt(0);
     }

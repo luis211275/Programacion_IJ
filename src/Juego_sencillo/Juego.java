@@ -22,6 +22,9 @@ public class Juego {
 
     public static void Inicio (){
         try {
+            String nombre1;
+            String nombre2;
+
 
             Personajes pj1 = new Personajes("GUERRERO", 80, 35, 25);
             Personajes pj2 = new Personajes("MAGO", 65, 55, 25);
@@ -55,17 +58,18 @@ public class Juego {
                 Thread.sleep(500);
                 System.out.println("2. DEFENDER");
                 Thread.sleep(500);
+                System.out.println("3. Ataque especial (solo se podrá tirar una vez en toda la partida)");
                 opcion = sc.pedirNumero("Opcion: ");
-                if (opcion < 1 || opcion > 2) {
+                if (opcion < 1 || opcion > 3) {
                     Thread.sleep(300);
                     System.out.println("Opcion invalida");
                     correcto = false;
-                } else if (opcion == 2 && pj.getDefensa() <= 0) {
+                } else if (opcion == 2 && pj.getDefensa() <= 0 || opcion == 3 && pj.getDefensa() <= 0) {
                     Thread.sleep(300);
-                    System.out.println("NO PUEDE SER");
+                    System.out.println("PERO SI NO TIENES VIDA!!!");
                     Thread.sleep(1000);
                     correcto = true;
-                    opcion = 3;
+                    opcion = 4;
                 } else {
                     correcto = true;
                 }
@@ -89,6 +93,7 @@ public class Juego {
                 int accionpj1 = Menu(pj1);
                 int accionpj2 = Menu(pj2);
 
+
                 if (accionpj1 == 1 && accionpj2 == 2) {
                     int ataque = pj1.getAtaque();
                     int defensa = pj1.getDefensa();
@@ -101,6 +106,7 @@ public class Juego {
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
 
+
                 } else if (accionpj1 == 2 && accionpj2 == 1) {
                     int defensa = pj1.getDefensa();
                     int ataque = pj2.getAtaque();
@@ -112,6 +118,7 @@ public class Juego {
                     System.out.println(pj1.toString());
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
+
 
                 } else if (accionpj1 == 1 && accionpj2 == 1) {
                     int ataque1 = pj1.getAtaque();
@@ -128,6 +135,7 @@ public class Juego {
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
 
+
                 } else if (accionpj1 == 2 && accionpj2 == 2) {
                     int defensa = pj1.getDefensa();
                     int defensa1 = pj1.getDefensa();
@@ -135,7 +143,8 @@ public class Juego {
                     System.out.println("EN ESTA BATALLA QUEREMOS SANGRE, SI LOS DOS OS DEFENDEIS TODO EL RATO, NO HABRÁ DIVERSIÓN");
                     Thread.sleep(1000);
 
-                } else if (accionpj1 == 1 && accionpj2 == 3) {
+
+                } else if (accionpj1 == 1 && accionpj2 == 4) {
                     int ataque = pj1.getAtaque();
                     int vida = pj2.getVida();
                     Thread.sleep(500);
@@ -147,7 +156,8 @@ public class Juego {
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
 
-                } else if (accionpj1 == 3 && accionpj2 == 1) {
+
+                } else if (accionpj1 == 4 && accionpj2 == 1) {
                     int vida = pj1.getVida();
                     int ataque = pj2.getAtaque();
                     Thread.sleep(500);
@@ -158,7 +168,97 @@ public class Juego {
                     System.out.println(pj1.toString());
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
+
+
+                } else if (accionpj1 == 3 && accionpj2 == 1) {
+                    int ataque = pj1.getAtaque();
+                    int defensa = pj2.getDefensa();
+                    Thread.sleep(500);
+                    System.out.println("El " + pj1.getNombre() + " ha decidido hacer un SUPER ATAQUE, y el" + pj2.getNombre() + "ha decidido defenderlo");
+                    Thread.sleep(500);
+                    pj2.setDefensa(defensa - pj1.ataque_especial());
+                    System.out.println("Asi estan los personajes despues de este ataque");
+                    System.out.println(pj1.toString());
+                    Thread.sleep(500);
+                    System.out.println(pj2.toString());
+
+
+                }else if (accionpj1 == 2 && accionpj2 == 4) {
+                    System.out.println("Pero que hace el " + pj1.getNombre() + "tenias a tiro al " + pj2.getNombre());
+                    System.out.println("Asi estan los personajes despues de esta defensa");
+                    System.out.println(pj1.toString());
+                    Thread.sleep(500);
+                    System.out.println(pj2.toString());
+
+
+                }else if (accionpj1 == 4 && accionpj2 == 2) {
+                    System.out.println("Pero que hace el " + pj2.getNombre() + "tenias a tiro al " + pj1.getNombre());
+                    System.out.println("Asi estan los personajes despues de esta defensa");
+                    System.out.println(pj1.toString());
+                    Thread.sleep(500);
+                    System.out.println(pj2.toString());
+
+
+                }else if (accionpj1 == 2 && accionpj2 == 3) {
+                    int ataque = pj1.getAtaque();
+                    int defensa = pj2.getDefensa();
+                    Thread.sleep(500);
+                    System.out.println("El " + pj2.getNombre() + " ha decidido hacer un SUPER ATAQUE, y el" + pj1.getNombre() + "ha decidido defenderlo");
+                    Thread.sleep(500);
+                    pj1.setDefensa(defensa - pj1.ataque_especial());
+                    System.out.println("Asi estan los personajes despues de este ataque");
+                    System.out.println(pj1.toString());
+                    Thread.sleep(500);
+                    System.out.println(pj2.toString());
+
+
+                }else if (accionpj1 == 3 && accionpj2 == 2) {
+                    int defensa = pj1.getDefensa();
+                    int ataque = pj2.getAtaque();
+                    Thread.sleep(500);
+                    System.out.println("El " + pj1.getNombre() + " ha decidido hacer un SUPER ATAQUE, y el " + pj2.getNombre() + " ha decidido defenderlo");
+                    pj2.setDefensa(defensa - pj2.ataque_especial());
+                    System.out.println("Asi estan los personajes despues de este ataque");
+                    System.out.println(pj1.toString());
+                    Thread.sleep(500);
+                    System.out.println(pj2.toString());
+
+
+                }else if (accionpj1 == 3 && accionpj2 == 1) {
+                    int ataque1 = pj1.getAtaque();
+                    int vida1 = pj1.getVida();
+                    int ataque2 = pj2.getAtaque();
+                    int vida2 = pj2.getDefensa();
+                    Thread.sleep(500);
+                    System.out.println("El " + pj1.getNombre() + "ha decidido hacer un SUPER ATAQUE, y el " + pj2.getNombre() + " ha decidido atacar tambien, por lo que los dos or hareis vuestro respectivo daño");
+                    Thread.sleep(500);
+                    pj1.setVida(vida1 - ataque2);
+                    pj2.setVida(vida2 - pj1.ataque_especial());
+
+
+                }else if (accionpj1 == 3 && accionpj2 == 1) {
+                    int ataque1 = pj2.getAtaque();
+                    int vida1 = pj2.getVida();
+                    int ataque2 = pj1.getAtaque();
+                    int vida2 = pj1.getDefensa();
+                    Thread.sleep(500);
+                    System.out.println("El " + pj2.getNombre() + "ha decidido hacer un SUPER ATAQUE, y el " + pj1.getNombre() + " ha decidido atacar tambien, por lo que los dos or hareis vuestro respectivo daño");
+                    Thread.sleep(500);
+                    pj1.setVida(vida2 - ataque1);
+                    pj2.setVida(vida1 - pj2.ataque_especial());
+
+
+                }else if (accionpj1 == 3 && accionpj2 == 3) {
+                    int vida1 = pj1.getVida();
+                    int vida2 = pj2.getVida();
+                    Thread.sleep(500);
+                    System.out.println("Tanto el " + pj1.getNombre() + " como el " + pj2.getNombre() + " han decidido hacer un SUPER ATAQUE");
+                    Thread.sleep(500);
+                    pj1.setVida(vida1 - pj2.ataque_especial());
+                    pj2.setVida(vida2 - pj1.ataque_especial());
                 }
+
+
 
 
                 if (pj1.getVida() <= 0) {
@@ -172,6 +272,9 @@ public class Juego {
                 }
 
             }
+
+
+
 
             if (pj1.getVida() > pj2.getVida()) {
                 Thread.sleep(1200);
