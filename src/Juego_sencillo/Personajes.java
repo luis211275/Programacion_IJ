@@ -54,8 +54,7 @@ public class Personajes {
 
 
     public int ataque_especial() {
-        int especial = ataque;
-        return especial * 2;
+        return ataque * 2;
     }
 
 
