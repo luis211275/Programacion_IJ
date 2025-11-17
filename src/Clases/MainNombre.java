@@ -1,4 +1,4 @@
-package clases;
+package Clases;
 
 public class MainNombre {
     private static MyScanner1 scanner1 = new MyScanner1();

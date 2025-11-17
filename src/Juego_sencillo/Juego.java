@@ -1,6 +1,6 @@
 package Juego_sencillo;
 
-import clases.MyScanner;
+import Clases.MyScanner;
 
 import java.util.Scanner;
 
@@ -29,7 +29,9 @@ public class Juego {
             Thread.sleep(1000);
             System.out.println("Hola jugadores, bienvenido a esta gran batalla entre Guerreros y Magos, aquí se decidirá quien es el que manda en el reino");
             Thread.sleep(3000);
-            System.out.println("El personaje 1 serán los guerreros y el personaje 2 serán los magos");
+            String NombreGuerrero = sc.pideTexto("Cual quiere que sea el nombre del " + pj1.getNombre());
+            pj1.setNombre(NombreGuerrero);
+            System.out.println("El personaje 1 será " + pj1.getNombre() + " y el personaje 2 serán los magos");
             Thread.sleep(2000);
             System.out.println("Etas son las estadisticas de los dos personajes: ");
             Thread.sleep(1000);
@@ -104,6 +106,9 @@ public class Juego {
                     System.out.println(pj1.toString());
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
+                    if (pj2.getDefensa() < 0) {
+                        pj2.setDefensa(0);
+                    }
 
 
                 } else if (accionpj1 == 2 && accionpj2 == 1) {
@@ -117,6 +122,9 @@ public class Juego {
                     System.out.println(pj1.toString());
                     Thread.sleep(500);
                     System.out.println(pj2.toString());
+                    if (pj1.getDefensa() < 0) {
+                        pj1.setDefensa(0);
+                    }
 
 
                 } else if (accionpj1 == 1 && accionpj2 == 1) {
@@ -188,9 +196,8 @@ public class Juego {
                     if (ataques_especiales2 != 0) {
                         Thread.sleep(500);
                         System.out.println("sabes leer " + pj2.getNombre() + "? solo puedes hacer ese ataque 1 vez");
-                    }
-
-                    else {
+                        break;
+                    } else {
                         int defensa = pj1.getDefensa();
                         Thread.sleep(500);
                         System.out.println("El " + pj2.getNombre() + " ha decidido hacer un SUPER ATAQUE, y el" + pj1.getNombre() + "ha decidido defenderlo");
@@ -201,6 +208,7 @@ public class Juego {
                         Thread.sleep(500);
                         System.out.println(pj2.toString());
                         ataques_especiales2++;
+                        if (pj1.getDefensa() < 0){}
                     }
 
 
@@ -220,6 +228,9 @@ public class Juego {
                         Thread.sleep(500);
                         System.out.println(pj2.toString());
                         ataques_especiales1++;
+                        if (pj2.getDefensa() < 0) {
+                            pj2.setDefensa(0);
+                        }
                     }
 
 
@@ -250,6 +261,7 @@ public class Juego {
                     if (ataques_especiales2 != 0) {
                         Thread.sleep(500);
                         System.out.println("sabes leer " + pj2.getNombre() + "? solo puedes hacer ese ataque 1 vez");
+                        break;
 
                     } else {
                         int vida1 = pj2.getVida();
@@ -272,13 +284,16 @@ public class Juego {
                     if (ataques_especiales1 != 0) {
                         Thread.sleep(500);
                         System.out.println("sabes leer " + pj1.getNombre() + "? solo puedes hacer ese ataque 1 vez");
+                        break;
                     } else if (ataques_especiales2 != 0) {
                         Thread.sleep(500);
                         System.out.println("sabes leer " + pj2.getNombre() + "? solo puedes hacer ese ataque 1 vez");
+                        break;
 
                     } else if (ataques_especiales1 != 0 && ataques_especiales2 != 0) {
                         Thread.sleep(500);
                         System.out.println("No os enterais ninguno de los dos, solo podeis hacer ese ataque 1 vez");
+                        break;
                     } else {
 
                         int vida1 = pj1.getVida();
@@ -302,7 +317,8 @@ public class Juego {
                     if (ataques_especiales1 != 0) {
                         Thread.sleep(500);
                         System.out.println("sabes leer " + pj1.getNombre() + "? solo puedes hacer ese ataque 1 vez");
-                    }else {
+                        break;
+                    } else {
 
                         int vida2 = pj2.getVida();
                         Thread.sleep(500);
@@ -319,7 +335,8 @@ public class Juego {
                     if (ataques_especiales2 != 0) {
                         Thread.sleep(500);
                         System.out.println("Sabes leer " + pj2.getNombre() + "? Solo puedes hacer ese ataque 1 vez");
-                    }else {
+                        break;
+                    } else {
 
                         int vida1 = pj1.getVida();
                         Thread.sleep(500);

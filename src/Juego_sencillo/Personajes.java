@@ -24,7 +24,7 @@ public class Personajes {
         return nombre;
     }
 
-    public void setNombre() {
+    public void setNombre(String nombreGuerrero) {
         this.nombre = nombre;
     }
 

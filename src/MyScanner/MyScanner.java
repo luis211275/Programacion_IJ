@@ -1,5 +1,7 @@
-package clases;
+package MyScanner;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -27,6 +29,23 @@ public class MyScanner {
         return n;
     }
 
+    public double pedirDecimal(String mns) {
+        double num = -1;
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.printf(mns);
+                num = sc.nextDouble();
+                sc.nextLine();
+                flag = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Eso no es número!");
+                sc.nextLine();
+            }
+        }
+        return num;
+    }
+
     public String pedirSoloTexto(String texto) {
         String input;
         boolean valido;
@@ -37,7 +56,7 @@ public class MyScanner {
             if (!valido) {
                 System.out.println("ERROR: solo se permiten letras (sin números ni símbolos). Inténtalo de nuevo.");
             }
-        }  while (!valido);
+        } while (!valido);
         return input;
     }
 
@@ -51,7 +70,7 @@ public class MyScanner {
             if (!valido) {
                 System.out.println("ERROR: solo se permite introducir una letra. Inténtalo de nuevo.");
             }
-        }while (!valido);
+        } while (!valido);
 
         return input.charAt(0);
     }
@@ -67,4 +86,9 @@ public class MyScanner {
         } while (texto.isEmpty());
         return texto;
     }
+
+    public void cerrar() {
+        sc.close();
+    }
+
 }
